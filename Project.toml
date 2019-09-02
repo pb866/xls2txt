@@ -1,0 +1,8 @@
+name = "xls2txt"
+uuid = "d78ee126-cd65-11e9-1c0b-0f8cc2c40763"
+authors = ["Peter Bräuer <pb866.git@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+ExcelReaders = "c04bee98-12a5-510c-87df-2a230cb6e075"
