@@ -26,6 +26,9 @@ function correctXLS(infolder::String, outfolder::String,
     mkdir(joinpath(outfolder, folder))
     for file in files
       try xlsdata = readXLS(joinpath(infolder, folder, file))
+        xlsdata.Latitude ./= 1e4
+        xlsdata.Longitude ./= 1e4
+        xlsdata.feet .*= 1000
         CSV.write(splitext(joinpath(outfolder, folder, file))[1]*".dat", xlsdata, delim='\t')
       catch
         @warn "Error in reading data from $folder/$file. Possibly empty Excel sheets. Data skipped."
