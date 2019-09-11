@@ -2,6 +2,7 @@ name = "xls2txt"
 uuid = "d78ee126-cd65-11e9-1c0b-0f8cc2c40763"
 authors = ["Peter Bräuer <pb866.git@gmail.com>"]
 version = "0.1.0"
+julia = "≥1.0"
 
 [deps]
 CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
