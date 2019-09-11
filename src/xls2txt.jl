@@ -1,12 +1,13 @@
 module xls2txt
 
 # Import Julia packages
-import Pkg; Pkg.activate("/Users/home/LIM/PACIFIC/Programmes/xls2txt")
 import LoggingExtras; const logg = LoggingExtras
 import ExcelFiles; const xls = ExcelFiles
 import CSV
 import DataFrames.DataFrame
 import ProgressMeter; const pm = ProgressMeter
+
+export logg, correctXLS
 
 
 readXLS(filename, sheet::String="Tabelle1") = DataFrame(xls.load(filename, sheet))
@@ -20,6 +21,9 @@ that is read in.
 """
 function correctXLS(infolder::String, outfolder::String,
   sheetname::String="Tabelle1")
+  if !isdir(outfolder)
+    println("$outfolder created."); mkpath(outfolder)
+  end
   folders = readdir(infolder)[isdir.(infolder.*"/".*readdir(infolder))]
   pm.@showprogress 1 "convert xls to text..." for folder in folders
     files = readdir(joinpath(infolder, folder))
@@ -36,12 +40,5 @@ function correctXLS(infolder::String, outfolder::String,
     end
   end
 end #function correctXLS
-
-logger = logg.FileLogger("Warnings.log")
-logg.global_logger(logger)
-correctXLS("data/in", "data/out/")
-
-
-end #Warnings
 
 end # module
