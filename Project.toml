@@ -1,12 +1,12 @@
 name = "xls2txt"
 uuid = "d78ee126-cd65-11e9-1c0b-0f8cc2c40763"
 authors = ["Peter Bräuer <pb866.git@gmail.com>"]
-version = "0.2.0-DEV"
 julia = "≥1.0"
 
 [deps]
 CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 ExcelFiles = "89b67f3b-d1aa-5f6f-9ca4-282e8d98620d"
+Juno = "e5e0dc1b-0480-54bc-9374-aad01c23163d"
 LoggingExtras = "e6f89c97-d47a-5376-807f-9c37f3926c36"
 ProgressMeter = "92933f4c-e287-5a05-a399-4b506db050ca"
